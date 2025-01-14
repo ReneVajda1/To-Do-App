@@ -11,11 +11,11 @@ public class Todo {
         this.isDone = !this.isDone;
     }
 
-    // todo can be created now from the text
+  // todo can be created now from the text
     public static Todo fromString(String from){
         char isDoneIndicator = from.charAt(1);
         boolean isDone = isDoneIndicator == 'X';
-        String text = from.substring(4,from.length()-1);
+        String text = from.substring(5,from.length()-1);
         return new Todo(text,isDone);
     }
 
@@ -29,7 +29,7 @@ public class Todo {
 
     @Override
     public String toString() {
-        return String.format("[%s]<%s>",isDone ? "X" : " ", text);
+        return String.format("[%s] <%s>",isDone ? "X" : " ", text);
     }
 
 
