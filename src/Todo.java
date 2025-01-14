@@ -6,9 +6,30 @@ public class Todo {
         this.text = text;
         this.isDone = isDone;
     }
+    // toggle() if used switches between true and false
+    public void toggle() {
+        this.isDone = !this.isDone;
+    }
+
+    public static Todo fromString(String from){
+        char isDoneIndicator = from.charAt(1);
+        boolean isDone = isDoneIndicator == 'X';
+        String text = from.substring(4,from.length()-1);
+        return new Todo(text,isDone);
+    }
+
+    public boolean isDone() {
+        return isDone;
+    }
+
+    public String getText() {
+        return text;
+    }
 
     @Override
     public String toString() {
         return String.format("[%s]<%s>",isDone ? "X" : " ", text);
     }
+
+
 }
