@@ -11,6 +11,7 @@ public class Todo {
         this.isDone = !this.isDone;
     }
 
+    // todo can be created now from the text
     public static Todo fromString(String from){
         char isDoneIndicator = from.charAt(1);
         boolean isDone = isDoneIndicator == 'X';
