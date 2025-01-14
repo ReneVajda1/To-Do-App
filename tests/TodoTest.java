@@ -27,9 +27,14 @@ class TodoTest {
     }
 
     @Test
-    void todoShouldBeDeserializable(){
+    void todoShouldBeDeserializable() throws TodoCannotBeCreatedException{
         Todo sut = Todo.fromString("[ ] <some text>");
         assertEquals(sut.getText(), "some text");
         assertEquals(sut.isDone(),false);
+    }
+    @Test
+    void todoShouldBeDeserializableAndThrowTodoCannotBeCreatedException(){
+        assertThrows(TodoCannotBeCreatedException.class , () -> Todo.fromString("[ ]"));
+
     }
 }
